@@ -38,16 +38,4 @@
   }
 }
 */
-.headerNavbarCat{
- background-color: rgb(237, 237, 237, 0.5);
-}
-.headerNavbarCat div{
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-
-}
-
-.headerNavbarCat div:hover{
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-}
 

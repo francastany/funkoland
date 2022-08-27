@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBarHeader from './components/NavBar';
 
@@ -8,5 +9,6 @@ function App() {
     </div>
   )
 }
+
 export default App;
 
