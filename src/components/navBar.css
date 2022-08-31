@@ -6,7 +6,7 @@
 .navbar div{
     padding: 0 7rem;
 }
-.navbar div span{
+.navbar-brand{
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: xx-large;
 }
@@ -17,9 +17,11 @@
     border: none;
     transition: all 0.2s;
 } 
+
 .navbar div button:hover{
     transform: translateY(-3px);  
 }
+
 
 .categories{
     height: 45px;
