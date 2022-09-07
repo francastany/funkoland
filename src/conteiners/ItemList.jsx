@@ -18,7 +18,7 @@ const funkosExtern = [
         "category": "sports",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         "imgSrc": "./img/sport-durant.jpg",
-        "price":  14.5,
+        "price":  15,
         "stock": 100
     },
     {
@@ -27,7 +27,7 @@ const funkosExtern = [
         "category": "sports",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         "imgSrc": "./img/sport-erving.jpg",
-        "price":  14.5,
+        "price":  15,
         "stock": 100
     },
     {
@@ -36,7 +36,7 @@ const funkosExtern = [
         "category": "sports",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         "imgSrc": "./img/sport-hamilton.jpg",
-        "price":  14.5,
+        "price":  18,
         "stock": 100
     },
     {
@@ -45,7 +45,7 @@ const funkosExtern = [
         "category": "sports",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         "imgSrc": "./img/sport-harden.jpg",
-        "price":  14.5,
+        "price":  16.5,
         "stock": 100
     },
     {
@@ -54,7 +54,7 @@ const funkosExtern = [
         "category": "sports",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         "imgSrc": "./img/sport-luis.jpg",
-        "price":  14.5,
+        "price":  15.5,
         "stock": 100
     }
 ]
@@ -67,24 +67,27 @@ function ItemList() {
         .then(data => setFunkos(funkosExtern))
         .then(console.log(Funkos))
         .catch(error => console.log(error))
-    }, [])
+    }, [Funkos])
 
     return (
         <>
-        <div className="container-fluid d-flex flex-wrap">
+        <div className="w-75 d-flex flex-column m-auto">
+            <h2 className="funkosTitle my-4 ps-3">Sport Funkos</h2>
 
-        {
-            Funkos.map(funko => (
-                <Item 
-                    id={funko.id}
-                    name={funko.name}
-                    category={funko.category}
-                    imgSrc={funko.imgSrc}
-                    price={funko.price}
-                    stock={funko.stock}
-                />        
-            ))
-        }
+            <div className="funkosContainer pb-1 d-flex gap-5">
+            {
+                Funkos.map(funko => (
+                    <Item 
+                        key={funko.id}
+                        name={funko.name}
+                        category={funko.category}
+                        imgSrc={funko.imgSrc}
+                        price={funko.price}
+                        stock={funko.stock}
+                    />        
+                ))
+            }
+            </div>
         </div>
         </>
     )

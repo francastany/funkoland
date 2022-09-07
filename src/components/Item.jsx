@@ -2,7 +2,7 @@ import ItemCount from "./ItemCount";
 
 function Item({id, name, category, imgSrc, price, stock}) {
     return (
-        <div className="card funkoCard border-light" id={`${category}${id}`}>
+        <div className="card shadow-sm funkoCard border-light" id={`${category}${id}`}>
             <img src={imgSrc} alt="funko" />
             <div className="card-body mt-1">
                 <div className="d-flex flex-column">
