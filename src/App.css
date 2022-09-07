@@ -42,3 +42,12 @@
 *{
   font-family: 'Quicksand', sans-serif;
 }
+.funkoCard {
+  max-width: 17rem;
+}
+.funkoCard h3{
+  font-size: large;
+}
+.addToCart{
+  font-size: small;
+}

@@ -2,7 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBarHeader from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
+// import ItemCount from './components/ItemCount';
+import ItemList from './conteiners/ItemList';
 
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
       <ItemListContainer 
         greetings="Próximamente aquí estará el contenido =D"
       />
-      <ItemCount 
+      <ItemList />
+{/*       <ItemCount 
         start={1}
         stock={10}
-      />
+      /> */}
     </div>
   )
 }
