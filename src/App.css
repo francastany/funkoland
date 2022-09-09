@@ -42,31 +42,3 @@
 *{
   font-family: 'Quicksand', sans-serif;
 }
-.funkosTitle{
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 800;
-}
-.funkosContainer{
-  overflow-x: scroll;
-}
-.funkosContainer::-webkit-scrollbar {
-  height: 5px;
-}
-.funkosContainer::-webkit-scrollbar-thumb {
-  background: rgb(100, 100, 100, 0.15);
-}
-
-
-.funkoCard {
-  min-width: 14rem;
-  border-radius: 0;
-}
-.funkoCard h3{
-  font-size: 16px;
-}
-.price{
-  font-size: 16px;
-}
-.addToCart{
-  font-size: 12px;
-}

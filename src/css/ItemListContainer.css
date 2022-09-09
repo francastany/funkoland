@@ -1,0 +1,18 @@
+  .funkoCard {
+    width: 16rem;
+    border-radius: 0;
+    margin: .5rem;
+  }
+  .funkoCard img{
+    min-height: 254px;
+    max-height: 254px;
+  }
+  .funkoCard h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .price{
+    font-size: 17px;
+  }

@@ -6,10 +6,11 @@
 .navbar div{
     padding: 0 7rem;
 }
-.navbar-brand{
+.navbar-title {
     font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: xx-large;
+    font-size: 1.8em;
 }
+
 
 .navbar div button{
     background-color: #F8F9FA;
@@ -24,7 +25,7 @@
 
 
 .categories{
-    height: 45px;
+    height: 40px;
     background-color: #f5f5f5;
     border: 1px solid #f0f0f0;
     align-items: center;
