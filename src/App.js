@@ -1,7 +1,7 @@
-import NavBarHeader from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import NavBarHeader from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 // import ItemCount from './components/ItemCount';
-import ItemList from './conteiners/ItemList';
+// import ItemList from './conteiners/ItemList';
 
 function App() {
   return (

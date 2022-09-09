@@ -1,5 +1,5 @@
-import '../css/ItemListContainer.css'
-import Item from "../components/Item";
+import '../../css/ItemListContainer.css'
+import Item from "./Item";
 
 
 function ItemList({ FunkosList }) {

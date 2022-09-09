@@ -1,4 +1,4 @@
-import '../css/navBar.css';
+import '../../css/navBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CartWidget from './CartWidget';

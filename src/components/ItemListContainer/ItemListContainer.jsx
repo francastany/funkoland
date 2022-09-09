@@ -1,10 +1,10 @@
-import '../css/ItemListContainer.css';
+import '../../css/ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useEffect, useState } from "react";
 
-import customFetch from "../utils/customFetch";
-import ItemList from '../conteiners/ItemList';
+import customFetch from "../../utils/customFetch";
+import ItemList from '../ItemListContainer/ItemList';
 
 const funkosExtern = [
     {
