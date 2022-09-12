@@ -1,0 +1,26 @@
+.detail{
+    min-height: 76vh;
+}
+
+.detailImg{
+    max-width: 50%;
+}
+
+.detail-Info{
+    min-height: 100%;
+}
+.detail-Info h1{
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.5rem #dcdcdc;
+}
+.itemCategory{
+    text-transform: uppercase;
+}
+.detail-Info .lead{
+    font-size: medium;
+}
+.detail-Info h2{
+    font-family: 'Open Sans', sans-serif;
+}
