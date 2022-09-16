@@ -16,9 +16,9 @@ function NavBarHeader() {
             </svg>
           </button>
           <Link className='text-decoration-none text-dark' to='/'><h2 className="navbar-title m-0">funkoLand</h2></Link>
-          <CartWidget
-            badgeContent={5}
-          />
+          <Link className='text-decoration-none text-dark' to='/cart'>
+            <CartWidget badgeContent={5} />
+          </Link>
         </div>
       </nav>
       <nav className="categories container-fluid d-flex justify-content-evenly">

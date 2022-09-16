@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-
-function ItemCount({ stock, start }) {
+function ItemCount({ stock, start = 0, onAdd }) {
     
     const [cartCant, setCartCant] = useState(start);
 
@@ -17,13 +16,9 @@ function ItemCount({ stock, start }) {
         }
     }
 
-    const CartAlert = () => {
-        (cartCant !== 1) ?  alert(`Se han añadido ${cartCant} productos al carrito.`) : alert(`Se ha añadido ${cartCant} producto al carrito`);
-    }
-
     return (
         <>
-        <div className="d-flex flex-column">
+        <div className="d-flex align-items-center gap-2">
             <div className="d-flex justify-content-between align-items-center bg-light rounded">
                 <button onClick={CartAdd} className="btn btn-link text-dark">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi" viewBox="0 0 16 16">
@@ -37,7 +32,11 @@ function ItemCount({ stock, start }) {
                     </svg>
                 </button>
             </div>
-            <button onClick={CartAlert} className="addToCart btn btn-outline-secondary mt-1">ADD TO CART</button>
+            {
+                stock && cartCant ?
+                <button onClick={() => onAdd(cartCant)} className="addToCart btn btn-dark">ADD TO CART</button>
+                : <button className="btn btn-outline-secondary" disabled>ADD TO CART</button>
+            }
         </div>
         </>
     )
