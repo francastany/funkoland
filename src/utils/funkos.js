@@ -190,7 +190,7 @@ const funkosExtern = [
     },
     {
         id: 22,
-        name: "Vito Corleone",
+        name: "Michael Corleone",
         category: "movies",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut, omnis eligendi corrupti delectus et quod! Debitis magni, perferendis magnam molestiae natus ipsa nisi eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quia ut.",
         imgSrc: "https://res.cloudinary.com/francocastany/image/upload/v1663111039/FunkoImgs/movies-corleone_yjatc7.jpg",

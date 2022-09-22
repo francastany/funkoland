@@ -1,14 +1,17 @@
 import ItemCount from '../ItemCount/ItemCount';
 import '../../css/ItemDetail.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../Cart/CartContext';
 
 const ItemDetail = ({ item }) => {
-    const [itemCant, setitemCant] = useState(0)
-    
+    const [itemCant, setitemCant] = useState(0);
+    const ctx = useContext(CartContext);
+
     const onAdd = (cartCant) => {
-        (cartCant !== 1) ?  alert(`Se han añadido ${cartCant} productos al carrito.`) : alert(`Se ha añadido ${cartCant} producto al carrito`);
+        alert(`You've selected ${cartCant} items.`)
         setitemCant(cartCant);
+        ctx.addItem(item, cartCant);
     }
 
     return(
