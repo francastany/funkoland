@@ -1,7 +1,7 @@
 import '../../css/navBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import CartWidget from './CartWidget';
+import CartWidget from '../Cart/CartWidget';
 import { Link } from 'react-router-dom';
 
 function NavBarHeader() {
