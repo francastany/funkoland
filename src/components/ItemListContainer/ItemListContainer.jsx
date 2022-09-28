@@ -1,30 +1,29 @@
 import '../../css/ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-
-import customFetch from "../../utils/customFetch";
-import funkosExtern from '../../utils/funkos';
-
+// import customFetch from "../../utils/customFetch";
+// import funkosExtern from '../../utils/funkos';
+// import { db } from '../../utils/firebaseConfig'; 
+// import { query, collection, getDocs } from "firebase/firestore";
 import ItemList from '../ItemListContainer/ItemList';
+
+import firestoreFetch from '../../utils/firestoneFetch';
 
 function ItemListContainer(){
 
     const [FunkosList, setFunkos] = useState([]);
     const { idCategory } = useParams();
-
+    
     useEffect(() => {
-        if (idCategory) {
-            customFetch(1500, funkosExtern.filter(item => item.category == idCategory))
-            .then(data => setFunkos(data))
-            .catch(error => console.log(error))
-        } //Si existe. Si tiene un valor
-            else{
-            customFetch(1500, funkosExtern)
-            .then(data => setFunkos(data))
-            .catch(error => console.log(error))
-        }
+        (idCategory) ?
+        firestoreFetch()
+            .then(result => setFunkos(result.filter(item => item.category === idCategory)))
+            .catch(err => console.log(err))
+        :
+        firestoreFetch()
+            .then(result => setFunkos(result))
+            .catch(err => console.log(err))
     }, [idCategory])
 
     return (
