@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { serverTimestamp, doc, setDoc, collection, updateDoc, increment } from "firebase/firestore";
 import { CartContext } from "./CartContext";
 import { db } from '../../utils/firebaseConfig';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
 
@@ -38,6 +39,12 @@ const Cart = () => {
                 stock: increment(-item.quantity)
             });
         }); 
+
+        Swal.fire(
+            'Great!',
+            'Your purchase was confirmed successfully!',
+            'success'
+        )
     }
 
     return (
@@ -88,7 +95,7 @@ const Cart = () => {
                                         <div className="col ps-0 text-end"><span className="fw-bold fs-3">$ {ctx.total()}</span></div>
                                     </div>
                                 </div>
-                                <button onClick={ createOrder } className="btn btn-dark rounded-0 w-100">CHECKOUT</button>
+                                <button onClick={ createOrder } className="btn btn-dark rounded-0 w-100">CHECKOUT</button>                                
                             </div>
                     </div>
                     : 
