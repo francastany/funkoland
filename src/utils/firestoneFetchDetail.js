@@ -7,7 +7,12 @@ const firestoreFetchDetail = async (id) => {
     const docSnap = await getDoc(docRef);
     
     if (docSnap.exists()) {
-        return docSnap.data()
+        return {
+            id: parseInt(id),
+            ...docSnap.data()
+        }
+    } else {
+        console.log("No such document!")
     }
 }
 

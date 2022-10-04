@@ -24,7 +24,7 @@ const ItemDetail = ({ item }) => {
 
                 <div className="detail-Info p-5 d-flex flex-column justify-content-evenly">
                     <h1>{item.name}</h1>
-                    <p className='text-secondary'>Category: <span className='itemCategory'>{item.category}</span></p>
+                    <p className='text-dark'>Category: <span className='itemCategory'>{item.category}</span></p>
 
                     <p className="lead">{item.description}</p>
                     <h2>USD $ {item.price}</h2>

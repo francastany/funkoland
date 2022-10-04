@@ -10,7 +10,8 @@ const CartContextProvider = ({ children }) => { //Renderizado de Componentes Hij
 
     const addItem = (product, qty) => {
         if(isInCart(product.id)){
-            product.quantity = product.quantity + qty
+            cartList.find(item => item.id === product.id).quantity += qty;
+            setCartList([...cartList]);
         } else {
             product.quantity = qty;
             setCartList([...cartList, product]);
@@ -39,6 +40,10 @@ const CartContextProvider = ({ children }) => { //Renderizado de Componentes Hij
         return subtotal() * 0.1
     }
 
+    const total = () => {
+        return subtotal() + taxes()
+    }
+
     return (
         <CartContext.Provider value={{
             cartList, 
@@ -48,7 +53,8 @@ const CartContextProvider = ({ children }) => { //Renderizado de Componentes Hij
             isInCart, 
             cartQty,
             subtotal,
-            taxes
+            taxes,
+            total
             }}>
             { children }
         </CartContext.Provider>

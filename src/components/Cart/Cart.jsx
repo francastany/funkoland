@@ -1,12 +1,45 @@
-import { useContext } from "react";
-import { CartContext } from "./CartContext";
-import { Link } from "react-router-dom";
-
 import '../../css/Cart.css';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { serverTimestamp, doc, setDoc, collection, updateDoc, increment } from "firebase/firestore";
+import { CartContext } from "./CartContext";
+import { db } from '../../utils/firebaseConfig';
 
 const Cart = () => {
 
     const ctx = useContext(CartContext)
+
+    const createOrder = async () => {
+        let itemsFromDB = ctx.cartList.map(item => ({
+            id: item.id,
+            title: item.name,
+            price: item.price,
+            quantity: item.quantity
+        }))
+        let order = {
+            buyer: {
+                name: "Juancito Comprador",
+                email: "juancito@comprador.com.ar",
+                phone: "1153689614"
+            },
+            date: serverTimestamp(),
+            items: itemsFromDB,
+            total: ctx.total()
+        }
+        //Creamos orden en DB
+        const newOrderRef = doc(collection(db, "orders"))
+        await setDoc(newOrderRef, order);
+        
+        ctx.clear();
+
+        itemsFromDB.map(async (item) => {
+            const itemRef = doc(db, "funkos", `${item.id}`);
+            await updateDoc(itemRef, {
+                stock: increment(-item.quantity)
+            });
+        }); 
+    }
+
     return (
         <>
             <h3 className="text-center m-3">YOUR CART</h3>
@@ -35,7 +68,6 @@ const Cart = () => {
                         :
                         <h5 className="text-center m-0 p-4">The cart is empty.</h5>
                     }
-                    {/* <button onClick={ctx.clear} className="w-25 m-4 align-self-start text-center btn btn-outline rounded-0">CLEAR ALL</button> */}
                 </div>
                 {
                     ctx.cartList.length > 0 ?
@@ -49,14 +81,14 @@ const Cart = () => {
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col ps-0">Taxes (10%)</div>
-                                        <div className="col ps-0 text-end"><span>$ {ctx.taxes()}</span></div>
+                                        <div className="col ps-0 text-end"><span>$ {ctx.taxes().toFixed(2)}</span></div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col ps-0 fw-bold fs-3">TOTAL</div>
-                                        <div className="col ps-0 text-end"><span className="fw-bold fs-3">$ {ctx.subtotal() - ctx.taxes()}</span></div>
+                                        <div className="col ps-0 text-end"><span className="fw-bold fs-3">$ {ctx.total()}</span></div>
                                     </div>
                                 </div>
-                                <button className="btn btn-dark rounded-0 w-100">CHECKOUT</button>
+                                <button onClick={ createOrder } className="btn btn-dark rounded-0 w-100">CHECKOUT</button>
                             </div>
                     </div>
                     : 
