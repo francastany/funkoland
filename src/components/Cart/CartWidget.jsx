@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useContext } from 'react';
 import '../../App.css'
+import { useContext } from 'react';
 import { CartContext } from './CartContext';
 
 function CartWidget () {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Item({id, name, category, imgSrc, price, stock}) {
+function Item({id, name, category, imgSrc, price}) {
     return (
         <div className="card shadow-sm funkoCard border-light" id={`${category}${id}`}>
             <img src={imgSrc} alt="funko" />
