@@ -12,39 +12,58 @@ const Cart = () => {
 
     const createOrder = async () => {
         let itemsFromDB = ctx.cartList.map(item => ({
+            key: item.id,
             id: item.id,
             title: item.name,
             price: item.price,
             quantity: item.quantity
         }))
-        let order = {
-            buyer: {
-                name: "Juancito Comprador",
-                email: "juancito@comprador.com.ar",
-                phone: "1153689614"
-            },
-            date: serverTimestamp(),
-            items: itemsFromDB,
-            total: ctx.total()
+        const {value: formValues} = await Swal.fire({
+            title: 'Finish your purchase',
+            html:
+                '<input id="swal-input1" placeholder="Full Name" class="swal2-input">' +
+                '<input id="swal-input2" placeholder="Email" class="swal2-input">' +
+                '<input id="swal-input3" placeholder="Phone" class="swal2-input">',
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value,
+                document.getElementById('swal-input3').value
+                ]
+            }
+        })
+        if (formValues) {
+            // Swal.fire(formValues[0])
+            let order = {
+                buyer: {
+                    name: formValues[0],
+                    email: formValues[1],
+                    phone: formValues[2]
+                },
+                date: serverTimestamp(),
+                items: itemsFromDB,
+                total: ctx.total()
+            }
+            //Creamos orden en DB
+            const newOrderRef = doc(collection(db, "orders"))
+            await setDoc(newOrderRef, order);
+
+            itemsFromDB.map(async (item) => {
+                const itemRef = doc(db, "funkos", `${item.id}`);
+                await updateDoc(itemRef, {
+                    stock: increment(-item.quantity)
+                });
+            });
+            Swal.fire(
+                'Great!',
+                'Thanks for your purchase',
+                'success'
+            )
         }
-        //Creamos orden en DB
-        const newOrderRef = doc(collection(db, "orders"))
-        await setDoc(newOrderRef, order);
         
         ctx.clear();
-
-        itemsFromDB.map(async (item) => {
-            const itemRef = doc(db, "funkos", `${item.id}`);
-            await updateDoc(itemRef, {
-                stock: increment(-item.quantity)
-            });
-        }); 
-
-        Swal.fire(
-            'Great!',
-            'Your purchase was confirmed successfully!',
-            'success'
-        )
+        
     }
 
     return (
