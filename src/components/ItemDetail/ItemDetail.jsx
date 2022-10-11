@@ -20,9 +20,9 @@ const ItemDetail = ({ item }) => {
             item && item.imgSrc 
             ? 
             <section className="container-fluid detail w-75 d-flex my-4">
-                <img className='detailImg' src={item.imgSrc} alt={item.name} />
+                <img className='detailImg' src={item.imgSrc} alt={item.name} style={{maxWidth: '60%'}}/>
 
-                <div className="detail-Info p-5 d-flex flex-column justify-content-evenly">
+                <div className="detail-Info p-3 d-flex flex-column justify-content-evenly">
                     <h1>{item.name}</h1>
                     <p className='text-dark'>Category: <span className='itemCategory'>{item.category}</span></p>
 

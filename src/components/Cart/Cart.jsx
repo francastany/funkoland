@@ -34,7 +34,6 @@ const Cart = () => {
             }
         })
         if (formValues) {
-            // Swal.fire(formValues[0])
             let order = {
                 buyer: {
                     name: formValues[0],
@@ -45,7 +44,7 @@ const Cart = () => {
                 items: itemsFromDB,
                 total: ctx.total()
             }
-            //Creamos orden en DB
+            //Creating order in DB
             const newOrderRef = doc(collection(db, "orders"))
             await setDoc(newOrderRef, order);
 

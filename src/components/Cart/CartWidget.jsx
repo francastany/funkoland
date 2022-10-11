@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css'
+import '../../css/App.css'
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 
