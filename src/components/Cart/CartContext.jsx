@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 export const CartContext = createContext();
 
-const CartContextProvider = ({ children }) => { //Renderizado de Componentes Hijos
+const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
     
     const isInCart = (id) => {
